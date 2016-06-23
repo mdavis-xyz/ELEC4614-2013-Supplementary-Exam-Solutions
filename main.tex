@@ -46,11 +46,11 @@
             pdfauthor={Matthew Davis},%pdf meta data
             pdftitle={ELEC4614 2013 Solutions},%pdf meta data
             %pdfsubject={\@title},%pdf meta data
-            pdfkeywords={UNSW, ELSOC, ELEC4614, Power, Electronics, Past, Paper, Exam, Solutions}]{hyperref}
+            pdfkeywords={UNSW, ELSOC, ELEC4614, Power, Electronics, Past, Paper, Exam, Solutions, supp, supplementary}]{hyperref}
 
 \usepackage[nameinlink, capitalise, noabbrev]{cleveref}
 
-\title{ELEC4614 2013 S1 Exam Solutions}
+\title{ELEC4614 2013 S1 Supplementary Exam Solutions}
 \author{Matthew Davis \\ \href{mailto:vicepresident@elsoc.net}{vicepresident@elsoc.net}}
 
 \renewcommand\thesection{Question \arabic{section}}
@@ -73,8 +73,8 @@
 \begin{abstract}
     These are the unofficial solutions to the 2013 Semester 1 Power Electronics exam.
     There are two different 2013 exams. 
-    These solutions are for the one where question 1a has no inductor. The questions are available on the Library website.
-    The other exam is the supplementary exam, on Moodle, with `2012' in the filename.
+    These solutions abre for the one where question 1a has an inductor, which is the supplementary exam.
+    The other exam is available on the library website.
     This is just the first draft. I don't guarantee than the solutions here are correct. If you spot a mistake, please let me know. I've put orange boxes throughout to indicate where I'm unsure.
     More solutions, papers and notes can be found at \href{www.elsoc.net}{elsoc.net}.
     Please note that for this particular exam, you only needed to solve 4 out of 6 possible questions.
@@ -87,7 +87,9 @@
 \include{1/main}
 \include{2/main}
 \include{3/main}
+\renewcommand\thesubsection{(\roman{subsection})}
 \include{4/main}
+\renewcommand\thesubsection{(\alph{subsection})}
 \include{5/main}
 \include{6/main}
 
