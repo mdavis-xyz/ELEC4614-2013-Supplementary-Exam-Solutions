@@ -1,0 +1,95 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}       %makes text copy-and-pastable
+\usepackage{wrapfig}           %for figures
+\usepackage{graphicx}          %for images
+\usepackage{booktabs}          % good tables package
+\usepackage{array}             %for spacing tables
+\usepackage{multirow}          %for multirow tables
+\usepackage{caption}           %for the captionof command
+\usepackage{amsmath}           %for any moderately complex math
+\usepackage{placeins}          %allows us to use \FloatBarrier
+\usepackage{caption}           %to use minipage for inserting figures
+\usepackage{float}             %for H figure and table placements Here.
+\usepackage{comment}          %for bulk comments
+\usepackage[colorinlistoftodos]{todonotes}%to do notes
+\usepackage[parfill]{parskip}  %To use blank lines instead of indentation to separate paragraphs
+\usepackage{ifthen}            %ifthenelse command
+\usepackage[margin=3cm]{geometry} %Change margin size
+\usepackage{titling}           %for spacing the title
+\usepackage{blindtext}         %for spacing the title
+    \setlength{\droptitle}{-4em}     % For spacing the title
+    \addtolength{\droptitle}{-4pt}   % For spacing the title
+%\usepackage[super]{nth}        %write 1st,2nd,3rd with \nth{1},\nth{2}, \nth{3}
+%\usepackage{ifdraft}
+\usepackage{units}
+\usepackage{subcaption} % for subfigures
+\captionsetup{width=0.8\textwidth}
+
+
+\usepackage{tikz}
+\usepackage{calc}
+% \usepackage{pgfgantt}             %For gantt charts
+\usepackage{pgffor}
+\usepackage[american]{circuitikz}
+\usepackage{ifthen}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{decorations.pathreplacing}
+
+\usepackage{varioref}
+
+\usepackage[hidelinks,%clickable cross references and URLs
+            pdftex,%pdf meta data
+            pdfauthor={Matthew Davis},%pdf meta data
+            pdftitle={ELEC4614 2013 Solutions},%pdf meta data
+            %pdfsubject={\@title},%pdf meta data
+            pdfkeywords={UNSW, ELSOC, ELEC4614, Power, Electronics, Past, Paper, Exam, Solutions}]{hyperref}
+
+\usepackage[nameinlink, capitalise, noabbrev]{cleveref}
+
+\title{ELEC4614 2013 S1 Exam Solutions}
+\author{Matthew Davis \\ \href{mailto:vicepresident@elsoc.net}{vicepresident@elsoc.net}}
+
+\renewcommand\thesection{Question \arabic{section}}
+\renewcommand\thesubsection{(\alph{subsection})}
+\renewcommand\thesubsubsection{\roman{subsubsection})}
+
+\usepackage{tocloft}
+\usepackage{chngcntr}
+\setlength{\cftsecnumwidth}{6em}
+%\setlength{\cftsubsecnumwidth}{3.25em}
+\setlength{\cftsubsubsecnumwidth}{4em}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    These are the unofficial solutions to the 2013 Semester 1 Power Electronics exam.
+    There are two different 2013 exams. 
+    These solutions are for the one where question 1a has no inductor. The questions are available on the Library website.
+    The other exam is the supplementary exam, on Moodle, with `2012' in the filename.
+    This is just the first draft. I don't guarantee than the solutions here are correct. If you spot a mistake, please let me know. I've put orange boxes throughout to indicate where I'm unsure.
+    More solutions, papers and notes can be found at \href{www.elsoc.net}{elsoc.net}.
+    Please note that for this particular exam, you only needed to solve 4 out of 6 possible questions.
+\end{abstract}
+
+%\listoftodos
+
+\tableofcontents
+
+\include{1/main}
+\include{2/main}
+\include{3/main}
+\include{4/main}
+\include{5/main}
+\include{6/main}
+
+
+\end{document}

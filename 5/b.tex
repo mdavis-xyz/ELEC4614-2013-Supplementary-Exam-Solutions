@@ -1,0 +1,58 @@
+\subsection{}
+
+
+\begin{center}
+\input{5/figures/DCM_current}
+\end{center}
+
+\subsubsection*{Explanation}
+
+The amount of energy built up in the magnetising inductance when the switch is on is fixed for a given $V_d$, $L_m$ and $D$.
+It is
+$$
+E
+= \frac{1}{2} L_m I_{m_{max}}^2
+= \frac{1}{2} L_m \left(\frac{V_d DT_s}{L_m}\right)^2
+$$
+
+If the load is small enough to not extract all that energy when the switch is off, then (if there were no tertiary winding) when the switch turns on again, the inductor will have some energy, and it will increase by a fixed amount. Over time the amount of magnetising current would tend towards infinity. (Well, to saturation, either way is bad.)
+
+With the tertiary winding (at the right ratio for the given duty), the magnetising current is driven to zero by the time the switch turns on again. So the magnetising current remains bounded in the steady state.
+
+\subsubsection*{Voltage Rating}
+
+When the switch turns off,
+
+\begin{align*}
+V_T & = V_d - V_1 \\
+    & = V_d - \frac{-N_1}{N_3} V_d \\
+    & = V_d \left(1+\frac{N_1}{N_3} \right)
+\end{align*}
+
+So a lower $\frac{N_3}{N_1}$ ratio leads to higher voltage stress.
+
+\subsubsection*{Maximum Duty}
+
+$D$ must be low enough for $i_m$ to reach zero each period.
+When the switch is on, $i_m$ builds up to
+$$
+i_{m_{max}} = \frac{V_d D T_s}{L_m}
+$$
+
+When the switch is off, $i_m$ falls by
+
+$$
+i_{m_{max}} = \frac{\frac{N_1}{N_3}V_d \Delta_1 T_s}{L_m}
+$$
+
+These two things must be equal, and $\Delta_1 < 1-D$. 
+When $D=D_{max}$, $\Delta_a = 1-D$.
+
+\begin{align*}
+\frac{V_d D_{max} T_s}{L_m} & = \frac{\frac{N_1}{N_3}V_d \Delta_1 T_s}{L_m} \\
+D_{max} & = \frac{N_1}{N_3}\Delta_1\\
+  & = \frac{N_1}{N_3}(1-D_{max})\\
+N_3 D_{max} & = N_1 - N_1 D_{max} \\
+D_{max}(N_3 + N_1) & = N_1 \\
+D_{max} & = \frac{N_1}{N_3 + N_1}
+\end{align*}

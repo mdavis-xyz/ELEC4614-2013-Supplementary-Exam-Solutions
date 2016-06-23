@@ -1,0 +1,27 @@
+
+
+\begin{tikzpicture}
+\begin{axis}[domain=0:400, 
+             axis x line=middle, 
+             axis y line=left, 
+             xtick={180,360}, 
+             xticklabels={%\unit[1.678]{ms},
+                          \unit[10]{ms},
+                          \unit[20]{ms},
+                          },
+             ytick={-0.8,0.8},
+             yticklabels={$-V_d$,$V_d$},
+             x axis line style={->},
+             xlabel={$\omega{}t$},
+             xlabel style={align=right}, 
+             y axis line style={->},
+             width=0.8\textwidth,
+             height=6cm,
+             %width=\uncontrolledRectifierGraphWidth,
+             ymax=1.2,
+             ymin=-1.2,
+             ] 
+    \addplot[red, samples=1000] {+0.8-1.6*and(1,mod(x,360)>180)}; 
+    \legend{$v_S$}
+\end{axis}
+\end{tikzpicture}

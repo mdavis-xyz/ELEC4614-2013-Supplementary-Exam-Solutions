@@ -1,0 +1,50 @@
+% \includegraphics[clip, trim=4cm 18cm 3cm 5.5cm, scale=0.8]{nonIsolatedDCDC/figures/boost.pdf}
+
+
+\begin{circuitikz}%[node distance = 2 cm, scale=1]
+
+\ctikzset{voltage/distance from node=.7}
+
+\xdef\topy{3}
+\xdef\leftx{0}
+\xdef\midLeftx{4}
+\xdef\midRightx{7}
+\xdef\rightx{9}
+
+\node[nfet] (sw) at (\midLeftx,\topy*0.5) {};
+\draw (sw.B) -- (sw.S);
+
+\draw
+   (\leftx,0) 
+   to[battery1,l=$V_d$]
+   (\leftx,\topy)
+   %to[short, i=$i_d$]
+   to[L, l=$L$, i^>=$i_L$, v=$V_L$]
+   (\midLeftx,\topy)
+   to[D, v<=$V_d$, i=$i_D$]
+   (\midRightx,\topy)
+   to[short, i=$i_o$]
+   (\rightx,\topy)
+   to[R, l=$R$, v<=$V_o$]
+   (\rightx,0)
+   --
+   (\leftx,0)
+   
+   (\midLeftx,0)
+   --
+   (sw.S)
+   (sw.D)
+   --
+   (\midLeftx,\topy)
+   
+   (\midRightx,0)
+   to[C, l=$C$, i_<=$i_C$]
+   (\midRightx,\topy)
+   
+   (\leftx,\topy)
+   to[open, i>^=$i_d$]
+   (\midLeftx,\topy)
+   ;
+  
+
+\end{circuitikz}

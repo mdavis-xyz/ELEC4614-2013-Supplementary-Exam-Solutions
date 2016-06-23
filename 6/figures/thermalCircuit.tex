@@ -1,0 +1,17 @@
+
+\begin{circuitikz}%[node distance = 2 cm, scale=1]
+\xdef\topy{3}
+\xdef\midx{4}
+\xdef\rightx{8}
+
+\draw (0,0) node[ground] {}
+      to[current source, l={\unit[7.7]{W}}, -*] (0,\topy)
+      node[above] {$70^\circ$}
+      to[R, l={\unit[0.2]{$^\circ$K/W}}] (\midx,\topy)
+      to[R, l=$x$] (\rightx,\topy)
+      
+      (\rightx,0) node[ground] {}
+      to[battery1, l={$40^\circ$}]
+      (\rightx,\topy)
+      ;
+\end{circuitikz}

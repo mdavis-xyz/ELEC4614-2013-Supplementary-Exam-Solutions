@@ -1,0 +1,38 @@
+\subsection{}\label{sec:1a}
+
+Assuming that the voltage source has amplitude $V_s$, not $\sqrt{2}V_s$.
+
+\begin{center}
+
+
+% \begin{figure}[htbp]
+%     \centering
+%     \begin{subfigure}[b]{\linewidth}
+%       \centering
+       \input{1/figures/a/voltageGraph}
+    %   \caption{Supply voltage ($v_S$) and load voltage ($v_L$)}
+    %   \label{1a fig:uncontrolled voltage graph}
+    % \end{subfigure}
+    \vspace{2cm} \\
+    % \begin{subfigure}[b]{\linewidth}
+    %   \centering
+       \input{1/figures/a/currentGraph}
+%       \caption{Load current ($i_L$)}
+%       \label{1a fig:uncontrolled current graph}
+%     \end{subfigure}
+%     \caption{Current and voltage waveforms for Q1a}
+%     \label{1a fig:uncontrolled rectifier graphs}
+% \end{figure}
+\end{center}
+
+\begin{align*}
+V_{AV} & = \frac{1}{2\pi} \int_0^{2\pi} V_L(\omega{}t) d \omega t \\
+       & = \frac{1}{2\pi} \int_0^{\pi} V_s\sin(\omega{}t) d \omega t \\
+       & = \frac{V_s}{2\pi} \left[ -\cos(\omega{}t) d \right]_0^{\pi} \\   
+       & = \frac{V_s}{2\pi} \left[ --1 --1 \right] \\   
+       & = \frac{V_s}{\pi} \\
+\intertext{\todo[inline]{Hmm. Is that right?}}
+I_{AV} & = \frac{V_{AV}}{R} \\
+       & = \frac{V_s}{R\pi}
+\end{align*}
+

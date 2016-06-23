@@ -1,0 +1,27 @@
+
+\begin{tikzpicture}%[node distance = 2 cm, scale=1]
+
+
+\begin{axis}[domain=0:400, 
+             axis x line=middle, 
+             axis y line=left, 
+             xtick={180,360}, 
+             xticklabels={$\pi$,$2\pi$},
+             ytick={0,1},
+             yticklabels={{\color{white}$-V_s$},$\frac{V_s}{R}$},
+             x axis line style={->},
+             xlabel={$\omega{}t$},
+             xlabel style={align=right}, 
+             y axis line style={->},
+             width=0.8\textwidth,
+             height=6cm,
+             %width=\uncontrolledRectifierGraphWidth,
+             ymax=1.2,
+             %ymin=0,
+             ] 
+    \addplot[green, samples=360] {truncSin(x,0,180)}; 
+    \legend{$i_L$}
+\end{axis}
+
+
+\end{tikzpicture}

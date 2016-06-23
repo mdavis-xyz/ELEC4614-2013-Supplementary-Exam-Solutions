@@ -1,0 +1,76 @@
+\subsection{}
+
+\begin{center}
+\input{4/figures/buckBoost}
+\end{center}
+
+\subsubsection{}
+
+\begin{align*}
+\frac{V_o}{V_d} & = \frac{D}{1-D} \\
+V_o - V_o D & = V_d D \\
+V_o & = D (V_d V_o) \\
+V_o & = D(V_d+V_o) \\
+D & = \frac{V_d}{V_d+V_o} \\
+  & = \frac{70}{100+70} \\
+  & \approx 0.412
+\end{align*}
+
+\subsubsection{}
+
+\begin{align*}
+(1-D)I_L & = I_o \\
+\Delta I_L & = \frac{V_dDT_s}{L} \\
+\intertext{For the boundary}
+I_L & = \frac{\Delta I_L}{2} \\
+\frac{I_o}{1-D} & = \frac{V_dDTs}{2L} \\
+Lf_s & = \frac{V_d D (1-D)}{2I_o} \\
+     & = \frac{\frac{(1-D)V_o}{D} D (1-D)}{2I_o} \\
+     & = \frac{R(1-D)^2}{2I_o} \\
+L    & = \frac{R(1-D)^2}{2I_of_s} \\
+     & = \frac{V_o^2(1-D)^2}{2Pf_s} \\
+     & = \frac{70^2 \times (1-0.412)^2}{2\times 100\times 100k} \\
+     & = \unit[84.7]{\mu{}H}
+\end{align*}
+
+\subsubsection{}
+
+The output voltage is the same, and power has increased. Therefore current has increased, so we are still in CCM.
+
+\begin{align*}
+I_{L_{ave}} & = \frac{I_o}{1-D} \\
+            & = \frac{P}{V_o(1-D)} \\
+            & = \frac{500}{70\times (1-0.412)} \\
+            & = \unit[12.147]{A} \\
+\Delta I_L  & = \frac{V_d DT_s}{L} \\
+            & = \frac{100 \times 0.412}{100k \times 84.7\mu} \\
+            & = \unit[4.864]{A} \\
+I_{L_{max}} & = I_{L_{ave}} + \frac{\Delta I_L}{2} \\
+            & = 12.147 + \frac{4.864}{2} \\
+            & = \unit[14.579]{A} \\
+I_{L_{min}} & = I_{L_{ave}} - \frac{\Delta I_L}{2} \\
+            & = 12.147 - \frac{4.864}{2} \\
+            & = \unit[9.715]{A} \\
+\end{align*}
+
+\subsubsection{}
+
+This question is impossible to solve (by hand).
+
+We are now in DCM, since $P\leq \unit[100]{W}$.
+
+\begin{center}
+\input{4/figures/DCM_current}
+\end{center}
+
+\begin{align*}
+I_{L_{max}} & = \frac{V_d DT_s}{L} \\
+I_{L_{max}} & = \frac{V_o \Delta_1 T_s}{L} \\
+\frac{V_d DT_s}{L} & = \frac{V_o \Delta_1 T_s}{L} \\
+V_d D & = V_o \Delta_1\\
+P     & = f_s \times \frac{1}{2} L I_{L_{max}}  \\
+      & = \frac{V_d D}{2}
+\end{align*}
+
+Note that in DCM power is not a function of output resistance. $f_s$, $D$ and $V_d$ haven't changed, so power can't change.
+If the question asked us what the new $D$ must be, then maybe we could solve it.

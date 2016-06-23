@@ -1,0 +1,27 @@
+\subsection{}
+
+\begin{center}
+
+\input{3/figures/cVoltage}
+\input{3/figures/cCurrent}
+%\input{3/figures/c}
+
+\end{center}
+
+
+\begin{align*}
+I_0 & = -\frac{200}{2} \times \frac{1-e^{-\frac{2*0.01}{0.005}}}{1+e^{-\frac{2*0.01}{0.005}}} \\
+    & = \unit[-96.4]{A} \\
+0   & = i(t) \\
+    & = \frac{V_d}{R} + \left( I_0 - \frac{V_d}{R}\right) e^{-\frac{R}{L}t} \\
+\frac{V_d}{R} & = \left(\frac{V_d}{R} - I_0\right) e^{-\frac{R}{L} t} \\
+\frac{\frac{V_d}{R}}{\frac{V_d}{R}-I_0} & = e^{-\frac{R}{L}t} \\
+-\frac{R}{L}t = \ln\left(\frac{V_d}{V_d - I_0 R}\right) \\
+t_0 & = -\frac{L}{R} \ln \left( \frac{V_d}{V_d-I_0R}\right) \\
+    & = \frac{L}{R} \ln \left( \frac{V_d-I_0R}{V_d}\right) \\
+    & = \frac{0.005}{2} \ln \left( \frac{200--96.4\times 2}{200}\right) \\
+    & = \unit[1.687]{ms}
+\end{align*}
+
+(Sanity check: this is less than \unit[10]{ms}.)
+
