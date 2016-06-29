@@ -1,0 +1,67 @@
+
+\begin{tikzpicture}
+\begin{axis}[standard,
+             xtick={0,\trv,\offTimeTwo}, 
+             xticklabels={0,
+                          $t_{rv}{=}\unit[\tfv]{ns}$,
+                          $t_{rv}+t_{fi}{=}\unit[\offTimeTwo]{ns}$}, 
+             ytick={\onV,400},
+             yticklabels={$I^2 R_{ds}$,400},
+             xlabel={$t$},
+             width=12cm,
+             height=4cm,
+             ymax=450,
+             ymin=0,
+             ylabel={Voltages For Turn Off},
+             legend style={at={(axis cs:\endOffT,200),anchor=east}}
+             ] 
+    \addplot[blue] 
+    coordinates {
+    (\startT,\onV)
+    (0,\onV)
+    (\trv,400)
+    (\endOffT,400)
+    };
+    \addplot[red] 
+    coordinates {
+    (\startT,400-\onV)
+    (0,400-\onV)
+    (\trv,0)
+    (\endOffT,0)
+    };
+    \legend{$V_{ds}$,$V_{D}$}
+\end{axis}
+
+\begin{axis}[standard,yshift=-6cm,
+             xtick={0,\trv,\offTimeTwo}, 
+             xticklabels={0,
+                          $t_{rv}{=}\unit[\tfv]{ns}$,
+                          $t_{rv}+t_{fi}{=}\unit[\offTimeTwo]{ns}$}, 
+             ytick={0,\I},
+             yticklabels={\color{white}$I^2 R_{ds}$,\I},
+             xlabel={$t$},
+             width=12cm,
+             height=4cm,
+             ymax=12,
+             ymin=0,
+             ylabel={Currents For Turn Off},
+             legend style={at={(axis cs:\endOffT,5),anchor=east}}
+             ] 
+    \addplot[blue] 
+    coordinates {
+    (\startT,\I)
+    (\trv,\I)
+    (\trv+\tfi,0)
+    (\endOffT,0) 
+    };
+    \addplot[red] 
+    coordinates {
+    (\startT,0)
+    (\trv,0)
+    (\trv+\tfi,\I) 
+    (\endOffT,\I)
+    };
+    \legend{$I_{d}$,$I_{D}$}
+\end{axis}
+
+\end{tikzpicture}

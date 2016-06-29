@@ -1,1 +1,48 @@
 \subsection{}
+
+No.
+
+\todo[inline]{What's a good explanation?}
+
+\subsubsection*{Mathematical Proof}
+
+From KCL,
+
+\begin{equation}
+\label{eq:1b diff}
+V_s \sin(\omega t) = R i(t) + L\frac{di(t)}{dt}
+\end{equation}
+
+The current must satisfy that equation.
+
+We already know a solutions is
+
+\begin{align*}
+i(t) & = i_{ss} + i_t \\
+     & = \frac{V_s}{z} \sin(\omega t - \Phi) + \sin{\Phi} e^{-\frac{Rt}{L}}
+\end{align*}
+
+Let's try to shift the curve up so that it starts at a non-zero value.
+
+\begin{equation}
+\label{eq:1b guess}
+i(t) = \frac{V_s}{z} \sin(\omega t - \Phi) + \frac{V_s}{z} \sin{\Phi} e^{-\frac{Rt}{L}} + C
+\end{equation}
+
+If we sub \cref{eq:1b guess} into \cref{eq:1b diff}, we see that it doesn't hold.
+
+
+\subsubsection*{Intuitive Explanation}
+
+We know that current between $\alpha$ and $\beta$ is given by a sinusiod (steady state solution) plus an exponential decay. 
+
+$$
+i(t) = \frac{V_s}{z} \sin(\omega t - \Phi) + \frac{V_s}{z} \sin{\Phi} e^{-\frac{Rt}{L}} 
+$$
+
+For non-zero $R$, the amplitude of the exponential decay is less than the amplitude of the sinusoid. Therefore the curve must cross the origin twice each period.
+
+
+\subsubsection*{Smart Arse Answer}
+
+The nomograph for the extinction angle (the $\beta$, $\alpha$ graph) only reaches $\beta{}=360^\circ$ for $\Phi=90^\circ$.

@@ -14,7 +14,7 @@
 \usepackage{caption}           %to use minipage for inserting figures
 \usepackage{float}             %for H figure and table placements Here.
 \usepackage{comment}          %for bulk comments
-\usepackage[colorinlistoftodos]{todonotes}%to do notes
+\usepackage[colorinlistoftodos, disable]{todonotes}%to do notes
 \usepackage[parfill]{parskip}  %To use blank lines instead of indentation to separate paragraphs
 \usepackage{ifthen}            %ifthenelse command
 \usepackage[margin=3cm]{geometry} %Change margin size
@@ -38,6 +38,20 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.13}
 \usetikzlibrary{decorations.pathreplacing}
+
+\pgfplotsset{
+    standard/.style={
+        axis x line=middle,
+        axis y line=left,
+        ticklabel style={fill=white},
+        set layers=tick labels on top% use layers and choose the new layer set
+    },
+    layers/tick labels on top/.define layer set=% define the new layer set based on the standard one
+        {axis background,axis grid,axis ticks,axis lines,main,%
+          axis tick labels,% <- tick labels before main
+          axis descriptions,axis foreground}
+        {/pgfplots/layers/standard}
+}
 
 \usepackage{varioref}
 
@@ -84,6 +98,7 @@
 
 \tableofcontents
 
+\include{graphExtra}
 \include{1/main}
 \include{2/main}
 \include{3/main}

@@ -1,0 +1,68 @@
+
+
+\begin{tikzpicture}
+\begin{axis}[standard,
+             xtick={0,\tri,\onTimeTwo}, 
+             xticklabels={0,
+                          $t_{ri}{=}\unit[\tri]{ns}$,
+                          $t_{ri}+t_{fv}{=}\unit[\onTimeTwo]{ns}$},
+             ytick={\onV,400},
+             yticklabels={$I^2 R_{ds}$,400},
+             xlabel={$t$},
+             width=12cm,
+             height=4cm,
+             ymax=450,
+             ymin=0,
+             ylabel={Voltages For Turn On},
+             legend style={at={(axis cs:\endOnT,200),anchor=east}}
+             ] 
+    \addplot[blue] 
+    coordinates {
+    (\startT,400)
+    (\tri,400)
+    (\tri+\tfv,\onV)
+    (\endOnT,\onV)
+    };
+    \addplot[red] 
+    coordinates {
+    (\startT,0)
+    (\tri,0)
+    (\tri+\tfv,400-\onV)
+    (\endOnT,400-\onV)
+    };
+    \legend{$V_{ds}$,$V_{D}$}
+\end{axis}
+
+\begin{axis}[standard,yshift=-6cm,
+             xtick={0,\tri,\onTimeTwo}, 
+             xticklabels={0,
+                          $t_{ri}{=}\unit[\tri]{ns}$,
+                          $t_{ri}+t_{fv}{=}\unit[\onTimeTwo]{ns}$},
+             ytick={0,\I},
+             yticklabels={\color{white}$I^2 R_{ds}$,\I},
+             xlabel={$t$},
+             width=12cm,
+             height=4cm,
+             ymax=12,
+             ymin=0,
+             ylabel={Currents For Turn On},
+             legend style={at={(axis cs:\endOnT,5),anchor=east}}
+             ] 
+    \addplot[blue] 
+    coordinates {
+    (\startT,0)
+    (0,0)
+    (100,\I)
+    (\endOnT,\I)
+    };
+    \addplot[red] 
+    coordinates {
+    (\startT,\I)
+    (0,\I)
+    (100,0)
+    (\endOnT,0)
+    };
+    \legend{$I_{d}$,$I_{D}$}
+\end{axis}
+
+\end{tikzpicture}

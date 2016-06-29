@@ -1,1 +1,22 @@
 \subsection{}
+
+\begin{align*}
+a_n & = \frac{1}{\pi} \int_0^\pi V_{ll}(\omega t) \sin(n \omega t) d \omega t \\
+    & = \frac{V_{dc}}{\pi} \int_{\frac{\pi}{6}}^{\frac{5\pi}{6}} (\omega t) \sin(n \omega t) d \omega t \\
+    & = \frac{V_{dc}}{n\pi} \left[ -\cos(n \omega t )\right]_{\frac{\pi}{6}}^{\frac{5\pi}{6}} \\
+    & = \frac{V_{dc}}{n\pi} \left[ \cos\left( \frac{n\pi}{6}\right) - \cos\left( \frac{n5\pi}{6}\right) \right] \\
+\intertext{For odd $n$ this becomes}
+a_n & = \frac{2V_{dc}}{n\pi} \cos\left( \frac{n\pi}{6}\right)  \\
+\intertext{We want rms values, so}
+a_n & = \frac{\sqrt{2}V_{dc}}{n\pi} \left| \cos \left( \frac{n\pi}{6} \right) \right| \\
+\end{align*}
+
+\begin{align*}
+a_1 & = \frac{\sqrt{2}V_{dc}}{\pi} \left| \cos\left( \frac{\pi}{6}\right) \right| = 116.95 \\
+a_3 & = \frac{\sqrt{2}V_{dc}}{3\pi} \left| \cos\left( \frac{3\pi}{6}\right) \right| = 0 \\
+a_5 & = \frac{\sqrt{2}V_{dc}}{5\pi} \left| \cos\left( \frac{5\pi}{6}\right) \right| = 23.39 \\
+a_7 & = \frac{\sqrt{2}V_{dc}}{7\pi} \left| \cos\left( \frac{7\pi}{6}\right) \right| = 16.71 \\
+a_9 & = \frac{\sqrt{2}V_{dc}}{9\pi} \left| \cos\left( \frac{9\pi}{6}\right) \right| = 0 \\
+a_{11} & = \frac{\sqrt{2}V_{dc}}{11\pi} \left| \cos\left( \frac{11\pi}{6}\right) \right| = 10.62 \\
+a_{13} & = \frac{\sqrt{2}V_{dc}}{13\pi} \left| \cos\left( \frac{13\pi}{6}\right) \right| = 9.00 \\
+\end{align*}

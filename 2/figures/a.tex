@@ -1,0 +1,43 @@
+
+\begin{circuitikz}
+\xdef\supplyx{0}
+\xdef\leftSwx{3}
+\xdef\rightSwx{6}
+\xdef\freeWheelx{8.5}
+\xdef\loadx{11}
+\xdef\topy{6}
+\xdef\midy{3}
+\xdef\lineSep{0.3}
+\xdef\topLine{\midy+\lineSep}
+\xdef\bottomLine{\midy-\lineSep}
+\xdef\supplyBendx{0.5*\supplyx + 0.5*\leftSwx}
+
+\foreach \x in {\leftSwx,\rightSwx}{
+	\foreach \t/\b in {\topy/\midy,
+	                    \midy/0}{
+	   \draw (\x,\b) to[Ty*] (\x,\t);
+	}
+}
+
+\draw (\leftSwx,\topy)
+    --(\loadx,\topy)
+    to[R, l=$R$]
+      (\loadx,0)
+    --(\leftSwx,0);
+
+\draw 
+      (\rightSwx,\bottomLine)
+      to[short, *-]
+      (\supplyBendx,\bottomLine)
+    --(\supplyBendx,0.3*\topy)
+    --(\supplyx,0.3*\topy) 
+      to[sV, l=$V_{ac}$]
+      (\supplyx,0.7*\topy)
+    --(\supplyBendx,0.7*\topy)
+    --(\supplyBendx,\topLine)
+      to[short, -*]
+      (\leftSwx,\topLine);
+
+\draw (\freeWheelx,0) to[D*] (\freeWheelx,\topy);
+
+\end{circuitikz}

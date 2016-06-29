@@ -1,1 +1,157 @@
-\section{H Bridge Inverter}
+\section{Non-Isolated Step Down Converter}
+
+We could use either a buck or a boost converter.
+
+I'm choosing a buck. The reasons is that oost converters have output stage current. This means that the RMS capacitor current is far higher, so there is higher ripple.
+ 
+\subsection*{Inductor Value}
+
+\begin{align*}
+I_L & = I_o \\
+\Delta I_L & = \frac{V_o (1-D)T_s}{L} \\
+\intertext{For DCM/CCM boundary}
+I_L & = \frac{\Delta I_L}{2} \\
+I_o & = \frac{V_o (1-D)T_s}{2L} \\
+Lf_s & = \frac{R(1-D)}{2} \\
+\intertext{The worst case scenario is that $I_o$ is at it's minimum.}
+L & = \frac{V_o (1-D)}{2f_sI_{L_{min}}} \\
+\intertext{This must be true of all $D$, so choose minimum $D$ for worst case scenario, so choose maximum $V_d$.}
+L & = \frac{V_o (1-D_{min})}{2f_sI_{L_{min}}} \\
+  & = \frac{V_o (1-\frac{V_o}{V_{d_{max}}})}{2f_sI_{L_{min}}} \\
+  & = \frac{5 \times (1-\frac{5}{12})}{2\times 20k \times 0.1} \\
+  & = \unit[729.17]{\mu{} H}
+\end{align*}
+
+\subsection*{Capacitance Value}
+
+\begin{align*}
+Q & = \frac{1}{2} \times \frac{T_s}{2} \times \frac{\Delta I_L}{2} \\
+  & = \frac{1}{8f_s} \times \frac{V_d (1-D) T_s}{L} \\
+  & = \frac{V_o (1-D)}{8f_s^2 L} \\
+C & = \frac{Q}{\Delta V} \\
+  & = \frac{\frac{V_o (1-D)}{8f_s^2 L}}{\Delta V} \\
+\intertext{We care about the worst case, which is the largest $C$, so smallest $D$, so biggest $V_d$,}
+  & = \frac{5 \times (1-\frac{5}{12})}{8 \times 20k^2 \times 729.17\mu 20m} \\
+  & = \unit[62.5]{\mu F}
+\end{align*}
+
+\subsection*{Peak Current Ratings}
+
+\begin{align*}
+I_{max} & = I_L + \frac{\Delta I_L}{2} \\
+\intertext{We want the worst case scenario, so maximise $I_{max}$, so minimize $D$, which means maximize $V_d$, and also maximize $I_o$,}
+        & = I_{o_{max}} + \frac{V_o (1-D)T_s}{2L} \\
+        & = I_{o_{max}} + \frac{V_o (1-\frac{V_o}{V_{d_{max}}})}{2Lf_s} \\ 
+        & = 1 + \frac{5 \times \left( 1 - \frac{5}{12}\right)}{2 \times 20k} \\
+        & = \unit[1.1]{A}
+\end{align*}
+
+That's for the diode and the switch.
+Maybe make it \unit[1.2]{A}, just so there's a bit of head room.
+
+\subsection*{Duty Range}
+
+For $V_d=\unit[8]{V}$,
+
+\begin{align*}
+D & = \frac{V_o}{V_d} \\
+  & = \frac{5}{8} \\
+  & = 0.625
+\end{align*}
+
+
+For $V_d=\unit[12]{V}$,
+
+\begin{align*}
+D & = \frac{V_o}{V_d} \\
+  & = \frac{5}{12} \\
+  & \approx 0.417
+\end{align*}
+
+So $D$ ranges from 0.417 to 0.625
+
+\subsection*{Demonstrate CCM is guarenteed}
+
+From earlier, we showed that to obtain CCM we need
+
+$$
+Lf_s \geq \frac{R(1-D)}{2} = \frac{V_o \left( 1 - \frac{V_o}{V_d}\right)}{2 I_o}
+$$
+
+The left hand side is
+
+\begin{align*}
+LHS  & = Lf_s \\
+     & = 729.17 \mu \times 20k \\
+     & = 14.58
+\end{align*}
+
+For $V_d=\unit[8]{V}$ and $I=\unit[1]{A}$:
+
+\begin{align*} 
+RHS   & = \frac{V_o \left( 1 - \frac{V_o}{V_d}\right)}{2 I_o} \\
+      & = \frac{5 \times \left( 1 - \frac{5}{8}\right)}{2 \times 1} \\
+      & = 0.9375
+      & \leq LHS
+\end{align*}
+
+So CCM is guaranteed for $V_d=\unit[8]{V}$ and $I=\unit[1]{A}$.
+
+
+For $V_d=\unit[8]{V}$ and $I=\unit[0.1]{A}$:
+
+\begin{align*} 
+RHS   & = \frac{V_o \left( 1 - \frac{V_o}{V_d}\right)}{2 I_o} \\
+      & = \frac{5 \times \left( 1 - \frac{5}{8}\right)}{2 \times 0.1} \\
+      & = 9.375
+      & \leq LHS
+\end{align*}
+
+So CCM is guaranteed for $V_d=\unit[8]{V}$ and $I=\unit[0.1]{A}$.
+
+
+For $V_d=\unit[12]{V}$ and $I=\unit[1]{A}$:
+
+\begin{align*} 
+RHS   & = \frac{V_o \left( 1 - \frac{V_o}{V_d}\right)}{2 I_o} \\
+      & = \frac{5 \times \left( 1 - \frac{5}{12}\right)}{2 \times 1} \\
+      & = 1.4583
+      & \leq LHS
+\end{align*}
+
+So CCM is guaranteed for $V_d=\unit[12]{V}$ and $I=\unit[1]{A}$.
+
+
+For $V_d=\unit[12]{V}$ and $I=\unit[0.1]{A}$:
+
+\begin{align*} 
+RHS   & = \frac{V_o \left( 1 - \frac{V_o}{V_d}\right)}{2 I_o} \\
+      & = \frac{5 \times \left( 1 - \frac{5}{12}\right)}{2 \times 0.1} \\
+      & = 14.58
+      & \leq LHS
+\end{align*}
+
+So CCM is guaranteed for $V_d=\unit[12]{V}$ and $I=\unit[0.1]{A}$:
+
+Therefore CCM is guarenteed for all specified conditions.
+
+\subsection*{Assumptions}
+
+\begin{itemize}
+    \item The diode is ideal
+    \begin{itemize}
+        \item No resistance
+        \item No forward voltage
+        \item No reverse recovery
+    \end{itemize}
+    \item The inductor is ideal
+    \begin{itemize}
+        \item No resistance
+    \end{itemize}
+    \item The capacitor is ideal
+    \begin{itemize}
+        \item No resistance
+    \end{itemize}
+\end{itemize}
+
+\todo[inline]{What have I forgotten? I'm sure there's more.}

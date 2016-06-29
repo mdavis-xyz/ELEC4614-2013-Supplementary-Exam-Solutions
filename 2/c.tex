@@ -1,1 +1,13 @@
 \subsection{}
+
+\begin{align*}
+V_{AV} & = \frac{1}{\pi} \int_\alpha^\pi \hat{V} \sin(\omega t) d \omega t \\
+       & = \frac{\hat{V}}{\pi} \left[ -\cos(\omega t)\right]_\alpha^\pi \\
+       & = \frac{\hat{V}}{\pi} \left[-\cos(\pi)- -\cos(\alpha)\right]_\alpha^\pi \\
+       & = \frac{\hat{V}}{\pi} \left[\cos(\alpha) + 1 \right] \\
+I_{ac} & = \sqrt{\frac{1}{2\pi} \int_0^{2\pi} \left(i_{sup}(t)\right)^2 d \omega t} \\
+      & = \sqrt{\frac{1}{2\pi} \left[ \int_\alpha^\pi I_{dc}^2 d \omega t  +  \int_{\pi+\alpha}^{2\pi} I_{dc}^2 d \omega t \right] }\\
+      & = I_{dc} \sqrt{\frac{1}{\pi} \left[ \int_\alpha^\pi d \omega t  \right]} \\
+      & = I_{dc} \sqrt{\frac{1}{\pi} \left[ \pi - \alpha \right]} \\
+      & = I_{dc} \sqrt{\frac{\pi-\alpha}{\pi}}\\
+\end{align*}

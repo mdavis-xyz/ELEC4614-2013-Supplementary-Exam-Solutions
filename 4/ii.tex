@@ -1,1 +1,49 @@
+\clearpage
 \subsection{}
+
+\pgfmathdeclarefunction{lineLineV}{1}{%
+  \pgfmathparse{%
+    and(1,mod(#1,180) < 120) * 
+    (2 * and(1,mod(#1+360*3,360) < 180) - 1)
+  }%
+}
+
+\newcommand\lineLineVPlot[2]{
+
+\begin{tikzpicture}[]
+\begin{axis}[standard,
+             xlabel={$\omega t$},
+             ylabel={$V_{#2}$},
+             xtick={60,120,180,240,300,360,420}, 
+             xticklabels={$\frac{\pi}{3}$,
+                          $\frac{2\pi}{3}$,
+                          $\pi$,
+                          $\frac{4\pi}{3}$,
+                          $\frac{5\pi}{3}$,
+                          $2\pi$,
+                          $\frac{7\pi}{3}$
+                          },
+             ytick={-1,1},
+             yticklabels={$-V_{dc}$,$V_{dc}$},
+             domain=0:430,
+             width=0.8\textwidth,
+             height=5cm,
+             ymax=1.2,
+             ymin=-1.2,
+             ] 
+    \addplot[blue, samples=430] {lineLineV(x-#1)}; 
+    % \legend{$T_{#1}$}
+\end{axis}
+\end{tikzpicture}
+}
+
+\begin{centering}
+   \foreach \wt/\l in {0/{AB},
+                       120/{BC},
+                       240/{CA}
+                       }{
+   
+      \lineLineVPlot{\wt}{\l}
+      
+   }
+\end{centering}

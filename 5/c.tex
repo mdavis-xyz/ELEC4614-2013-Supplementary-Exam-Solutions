@@ -1,1 +1,62 @@
 \subsection{}
+
+\subsubsection{}
+
+First let's check that it's in CCM.
+
+
+\begin{align*}
+I_{L} & = \frac{V_o}{R} \\
+\Delta I_L & = \frac{V_o (1-D) T_s}{L} \\
+\intertext{For CCM,}
+I_L & \geq \frac{\Delta I_L}{2} \\
+\frac{V_o}{R} & \geq \frac{V_o (1-D) T_s}{2L} \\
+Lf_s & \geq \frac{R(1-D)}{2} \\
+Lf_s & = 35k \times 5m \\
+     & = 175 \\
+\frac{R(1-D)}{2} & = \frac{10 \times (1-0.4)}{2} \\
+                 & = 3 < Lf_s
+\end{align*}
+So it's in CCM.
+
+\begin{align*}
+\frac{V_o}{V_d} & = \frac{N_2}{N_1} D \\
+V_o & = V_d D\frac{N_2}{N_1} \\
+    & = 48 \times 0.4 \times \frac{1}{1.5}\\
+    & = \unit[12.8]{V}
+\end{align*}
+
+\subsubsection{}
+
+\begin{align*}
+I_{L_{ave}} & = \frac{V_o}{R} \\
+            & = \frac{12.8}{10} \\
+            & = \unit[1.28]{A} \\
+\Delta I_L  & = \frac{V_o (1-D) T_s}{L} \\
+            & = \frac{V_o (1-D)}{Lf_s} \\
+            & = \frac{12.8 \times  (1-0.4)}{0.4m \times 35k} \\
+            & = \unit[0.54875]{A} \\
+I_{L_{max}} & = I_{L_{ave}} + \frac{\Delta I_L}{2} \\
+            & = 1.28 + \frac{0.54875}{2} \\
+            & = \unit[1.554]{A}\\
+I_{L_{min}} & = I_{L_{ave}} - \frac{\Delta I_L}{2} \\
+            & = 1.28 - \frac{0.54875}{2} \\
+            & = \unit[1.006]{A}\\
+\end{align*}
+
+\subsubsection{}
+
+The peak current in the secondary winding matches the peak inductor current, so maximum of \unit[1.554]{A} and minimum of \unit[1.006]{A}
+
+For the primary, take the minimum and maximum secondary currents, divide them by $\frac{N_1}{N_2}$.
+
+\begin{align*}
+I_{1_{max}} & = \frac{I_{2_{max}}}{\frac{N_1}{N_2}} \\
+            & = \frac{1.554}{1.5} \\
+            & = \unit[1.036]{A} \\
+I_{1_{min}} & = \frac{I_{2_{min}}}{\frac{N_1}{N_2}} \\
+            & = \frac{1.006}{1.5} \\
+            & = \unit[0.670]{A} \\
+\end{align*}
+
+Since $\frac{N_1}{N_3}=1$, the maximum and minimum tertiary winding currents are the same as for the primary. So \unit[1.036]{A} and \unit[0.670]{A}.

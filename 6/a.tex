@@ -1,2 +1,31 @@
 \subsection{}
 
+
+\xdef\startT{-30}
+
+\xdef\onV{30}
+\xdef\I{10}
+\xdef\tri{100}
+\xdef\tfv{150}
+\xdef\tfi{100}
+\xdef\trv{50}
+
+\pgfmathparse{int(\tri + \tfv)}
+\xdef\onTimeTwo{\pgfmathresult}
+
+\xdef\endOnT{\onTimeTwo+50}
+
+\pgfmathparse{int(\trv + \tri)}
+\xdef\offTimeTwo{\pgfmathresult}
+
+\xdef\endOffT{\offTimeTwo+50}
+
+
+\begin{center}
+\input{6/figures/a/on}
+\end{center}
+
+
+\begin{center}
+\input{6/figures/a/off}
+\end{center}

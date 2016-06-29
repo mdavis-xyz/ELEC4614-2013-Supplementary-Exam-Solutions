@@ -1,1 +1,21 @@
 \subsection{}
+
+Assuming that current and voltage rises and falls in a straight line. Neglecting reverse recovery current spikes.
+
+\subsubsection*{Turn On}
+
+
+\begin{align*}
+E_{on} & = \frac{1}{2} (t_{ri} + t_{fv}) V_{dd_{max} } I_{d_{max}} \\
+        & = \frac{1}{2} (100n+150n) \times 400 \times 10 \\
+        & = \unit[1]{mJ}
+\end{align*}
+
+\subsubsection*{Turn Off}
+
+
+\begin{align*}
+E_{off} & = \frac{1}{2} (t_{rv} + t_{fi}) V_{dd_{max} } I_{d_{max}} \\
+        & = \frac{1}{2} (50n + 100n) \times 400 \times 10 \\
+        & = \unit[600]{\mu{}J}
+\end{align*}

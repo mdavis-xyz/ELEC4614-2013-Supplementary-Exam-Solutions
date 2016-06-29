@@ -1,19 +1,7 @@
-\subsection{}
-
-\pgfmathdeclarefunction{invSw}{2}{%
-  \pgfmathparse{%
-    and(1,mod(360+#1-(#2-1)*360/6,360) < 180)
-  }%
-}
-
-\newcommand\switchPlot[1]{
-
-
-
 \begin{tikzpicture}[]
 \begin{axis}[standard,
-             xlabel=$\omega t$,
-             ylabel={T#1},
+             xlabel={$\omega t$},
+             ylabel={$V_{n}$},
              xtick={60,120,180,240,300,360,420}, 
              xticklabels={$\frac{\pi}{3}$,
                           $\frac{2\pi}{3}$,
@@ -23,24 +11,36 @@
                           $2\pi$,
                           $\frac{7\pi}{3}$
                           },
-             ytick=\empty,
-             yticklabels={},
+             ytick={-1,1},
+             yticklabels={$-\frac{V_{dc}}{3}$,
+                          $\frac{V_{dc}}{3}$
+                          },
              domain=0:430,
              width=0.8\textwidth,
-             height=3cm,
+             height=5cm,
              ymax=1.2,
+             ymin=-1.2,
              ] 
-    \addplot[blue, samples=430] {invSw(x,#1)}
+    \addplot[blue, samples=430] 
+    coordinates{
+    (0,1)
+    (60,1)
+    (60,-1)
+    (120,-1)
+    (120,1)
+    (180,1)
+    (180,-1)
+    (240,-1)
+    (240,1)
+    (300,1)
+    (300,-1)
+    (360,-1)
+    (360,1)
+    (420,1)
+    (420,-1)
+    (430,-1)
+    }
     ; 
     % \legend{$T_{#1}$}
 \end{axis}
 \end{tikzpicture}
-}
-
-\begin{centering}
-   \foreach \T in {1,...,6}{
-   
-      \switchPlot{\T}
-      
-   }
-\end{centering}

@@ -1,1 +1,35 @@
 \subsection{}
+
+
+\begin{center}
+% \begin{figure}[htbp]
+%     \centering
+%     \begin{subfigure}[b]{\linewidth}
+%       \centering
+       \input{1/figures/c/voltageGraph}
+    %   \caption{Supply voltage ($v_S$) and load voltage ($v_L$)}
+    %   \label{1c fig:uncontrolled voltage graph}
+    % \end{subfigure}
+    \vspace{2cm} \\
+    % \begin{subfigure}[b]{\linewidth}
+    %   \centering
+       \input{1/figures/c/currentGraph}
+%       \caption{Load current ($i_L$)}
+%       \label{1c fig:uncontrolled current graph}
+%     \end{subfigure}
+%     \caption{Current and voltage waveforms for Q1c}
+%     \label{1c fig:uncontrolled rectifier graphs}
+% \end{figure}
+\end{center}
+
+The load current is sinusoidal with an offset in the first half of each period.
+In the second half it's decaying exponentially towards zero, with time constant $\frac{L}{R}$.
+
+
+\begin{align*}
+V_{AV} & = \frac{1}{2\pi} \int_0^{2\pi} V_L(\omega{}t) d \omega t \\
+       & = \frac{1}{2\pi} \int_0^{\pi} V_s\sin(\omega{}t) d \omega t \\
+       & = \frac{V_s}{2\pi} \left[ -\cos(\omega{}t) d \right]_0^{\pi} \\   
+       & = \frac{V_s}{2\pi} \left[ --1 --1 \right] \\   
+       & = \frac{V_s}{\pi} \\
+\end{align*}

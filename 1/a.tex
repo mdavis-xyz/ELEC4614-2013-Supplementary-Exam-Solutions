@@ -1,1 +1,34 @@
-\subsection{}\label{sec:1a}
+\subsection{}
+
+
+
+\begin{center}
+% \begin{figure}[htbp]
+    \xdef\myBeta{225.787377}
+    % \centering
+    % \begin{subfigure}[b]{\linewidth}
+    %   \centering
+       \input{1/figures/a/voltageGraph}
+    %   \caption{Supply voltage ($v_S$) and load voltage ($v_L$)}
+    %   \label{fig:1b uncontrolled voltage graph}
+    % \end{subfigure}
+    \vspace{2cm} \\
+    % \begin{subfigure}[b]{\linewidth}
+    %   \centering
+       \input{1/figures/a/currentGraph}
+%       \caption{Load current ($i_L$)}
+%       \label{fig:1b uncontrolled current graph}
+%     \end{subfigure}
+%     \caption{Current and voltage waveforms for Q1b}
+%     \label{fig:1b uncontrolled rectifier graphs}
+% \end{figure}
+\end{center}
+
+\begin{align*}
+V_L & = \frac{1}{2\pi} \int_0^\beta V_s \sin(\omega t) d \omega t \\
+    & = \frac{V_s}{2\pi} \left[ -\cos(\omega t) \right]_0^\beta \\
+    & = \frac{V_s}{2\pi} \left[ 1- \cos(\beta) \right]_0^\beta \\
+I_L & = \frac{V_L}{R} \\
+    & = \frac{V_s}{2\pi{}R} \left[ 1- \cos(\beta) \right]_0^\beta 
+\end{align*}
+

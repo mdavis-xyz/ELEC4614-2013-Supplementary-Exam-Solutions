@@ -1,0 +1,41 @@
+
+\begin{tikzpicture}%[node distance = 2 cm, scale=1]
+
+
+
+\xdef\myOmega{2*3.1415*50}
+\xdef\resistance{100}
+\xdef\inductance{1}
+\pgfmathparse{atan(\myOmega * \inductance / \resistance)}
+\xdef\myPhi{\pgfmathresult}
+
+
+\begin{axis}[domain=0:400, 
+             axis x line=middle, 
+             axis y line=left, 
+             xtick={180,\myBeta,360}, 
+             xticklabels={$\pi$,$\beta$,$2\pi$},
+             ytick={0}, 
+             yticklabels={\color{white}$-V_s$},
+             x axis line style={->},
+             xlabel={$\omega{}t$},
+             xlabel style={align=right}, 
+             ymax=1.5,
+             y axis line style={->},
+             width=0.8\textwidth,
+             height=6cm,
+             %width=\uncontrolledRectifierGraphWidth,
+             ] 
+    % 1 - wt
+    % 2 - w
+    % 3 - R
+    % 4 - L
+    % 5 - phi
+    % \addplot[green, samples=360]
+    % {(and(1,mod(x,360)<\myBeta)*IL(x,\myOmega,\resistance,\inductance,\myPhi)};  
+    \input{1/figures/a/timeCoords}
+    \legend{$i_L$}
+    
+\end{axis}
+
+\end{tikzpicture}
